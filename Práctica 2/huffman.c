@@ -167,8 +167,7 @@ void agregar(TipoLista** Inicio){
   TipoLista* temp, *temp2 = *Inicio;
   system("clear");
   printf("Ingresar un caracter: ");
-  __fpurge(stdin);
-  caracter = getchar();
+  scanf(" %c", &caracter);
   while(temp2 != NULL){
     if(temp2->tipo == 0 && temp2->simbolo == caracter)
       flag = 1;
@@ -178,7 +177,7 @@ void agregar(TipoLista** Inicio){
     printf("El simbolo ingresado ya existe en la lista, por lo que no puedes volver a agregarlo\n");
   else{
     printf("Ingresar la probabilidad de aparicion: ");
-    scanf("%d", &probabilidad);
+    scanf(" %d", &probabilidad);
     Nuevo->simbolo = caracter;
     Nuevo->probabilidad = probabilidad;
     Nuevo->status = 0;
@@ -214,8 +213,7 @@ void borrar(TipoLista** Inicio){
   int flag = 0;
   TipoLista* aux = *Inicio, *ant = NULL, *temp = *Inicio;
   printf("Ingresar el simbolo a borrar: ");
-  __fpurge(stdin);
-  simbolo = getchar();
+  scanf(" %c", &simbolo);
   while(temp != NULL){
     if(temp->tipo == 0 && temp->simbolo == simbolo)
       flag = 1;
@@ -244,8 +242,7 @@ void modificarSimbolo(TipoLista* Inicio){
   int flag = 0, probabilidad;
   TipoLista* temp = Inicio, *temp2;
   printf("Ingresar el simbolo a modificar: ");
-  __fpurge(stdin);
-  simbolo = getchar();
+  scanf (" %c", &simbolo);
   while(temp != NULL && flag == 0){
     if(temp->simbolo == simbolo){
       flag = 1;
@@ -257,7 +254,7 @@ void modificarSimbolo(TipoLista* Inicio){
     printf("No se puede modificar el simbolo introdicido, ya que no se encuentra en la lista\n");
   else{
     printf("Ingresa la nueva probabilidad de aparicion del simbolo: ");
-    scanf("%d", &probabilidad);
+    scanf(" %d", &probabilidad);
     temp2->probabilidad = probabilidad;
     printf("Se ha modificado correctamente\n");
   }
